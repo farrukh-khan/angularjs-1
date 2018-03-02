@@ -1,0 +1,212 @@
+<div class="app-view-header">
+    Dashboard
+    <!--<small ng-bind="app.name + ' - ' + app.description"></small>-->
+</div>
+<div ng-controller="DashboardController" class="row">
+    <!-- START dashboard content-->
+    <div class="col-lg-12 fw-boxed">
+      <!-- START Tabbed panel-->
+      <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
+         <div class="row">
+            <div class="col-md-4">
+               <div class="row row-flush text-center text-muted m0">
+                  <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                     <em class="icon-pie-graph fa-2x mv"></em>
+                  </div>
+                  <div ripple="" ng-click="hpanel = [false, true, false, false]" ng-class="{'bg-purple': hpanel[1]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                     <em class="icon-head fa-2x mv"></em>
+                  </div>
+                  <div ripple="" ng-click="hpanel = [false, false, true, false]" ng-class="{'bg-pink': hpanel[2]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                     <em class="icon-share fa-2x mv"></em>
+                  </div>
+                  <div ripple="" ng-click="hpanel = [false, false, false, true]" ng-class="{'bg-amber': hpanel[3]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                     <em class="icon-briefcase fa-2x mv"></em>
+                  </div>
+               </div>
+            </div>
+            <div ng-if="hpanel[0]" class="col-md-8">
+               <div class="row row-table">
+                  <div class="col-lg-6 col-xs-8">
+                     <div class="p">
+                        <div class="row row-flush text-center">
+                           <div class="col-xs-6">
+                              <p class="mt-lg">Monthly Income
+                                 <div easypiechart="" options="pieOptions" percent="piePercent1" class="easypie">
+                                    <span>{{piePercent1}}</span>
+                                 </div>
+                              </p>
+                           </div>
+                           <div class="col-xs-6">
+                              <p class="mt-lg">Total Income</p>
+                              <div easypiechart="" options="pieOptions" percent="piePercent2" class="easypie">
+                                 <span>{{piePercent2}}</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-xs-4">
+                     <div class="p">Hourly
+                        <progressbar value="35" type="warning" class="progress-xs"></progressbar>Last Month
+                        <progressbar value="10" type="info" class="progress-xs"></progressbar>Last Year
+                        <progressbar value="35" type="danger" class="progress-xs m0"></progressbar>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div ng-if="hpanel[1]" class="col-md-8">
+               <ul class="list-table">
+                  <li>
+                     <div class="p">
+                        <h4>Total Views (3 months)</h4>
+                        <sparkline options="sparkOptionsLine" values="sparkValuesLine" class="mb"></sparkline>
+                        <small>Nullam at justo vel neque euismod porttitor.</small>
+                     </div>
+                  </li>
+                  <li class="pv wd-md">
+                     <div class="p text-center">
+                        <div class="mb-sm">Daily</div>
+                        <sparkline options="sparkOptions" values="sparkValues1" class="mb"></sparkline>
+                        <div class="mv-sm">Monthly</div>
+                        <sparkline options="sparkOptions" values="sparkValues2" class="mb"></sparkline>
+                        <div class="mv-sm">Yearly</div>
+                        <sparkline options="sparkOptions" values="sparkValues3" class="mb"></sparkline>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div ng-if="hpanel[2]" ng-init="loadProgressValues()" class="col-md-8">
+               <ul class="list-table">
+                  <li>
+                     <div class="p">
+                        <h3>Tasks done 60%</h3>
+                        <progressbar value="progressVal[0]" type="info" class="progress-xs"></progressbar>
+                        <em>Sed ut semper leo. Nulla sit amet risus sem, sit amet molestie felis.</em>
+                     </div>
+                  </li>
+                  <li class="pv wd-md">
+                     <div class="p">Pending
+                        <progressbar value="progressVal[1]" type="purple" class="active progress-xs"></progressbar>In progress
+                        <progressbar value="progressVal[2]" type="primary" class="active progress-xs"></progressbar>This month
+                        <progressbar value="progressVal[3]" type="warning" class="active progress-xs m0"></progressbar>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div ng-if="hpanel[3]" class="col-md-8">
+               <div class="p pv-xxl">
+                  <ul class="list-table text-center">
+                     <li>
+                        <p class="text-muted">PAY RATE</p>
+                        <h1 class="text-lg m0 mb-lg">$18</h1>
+                        <p class="text-muted m0">TIME</p>
+                        <p class="m0">5 months</p>
+                     </li>
+                     <li>
+                        <p class="text-muted">AVG INCOME</p>
+                        <h1 class="text-lg m0 mb-lg">$8.40</h1>
+                        <p class="text-muted m0">LAST INCOME</p>
+                        <p class="m0">Yesterday</p>
+                     </li>
+                     <li>
+                        <p class="text-muted">TOTAL SALES</p>
+                        <h1 class="text-lg m0 mb-lg">3050</h1>
+                        <p class="text-muted m0">LAST SALE</p>
+                        <p class="m0">10 minutes ago</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END Tabbed panel-->
+      <!-- START Panel-->
+
+        <div class="app-view-header">
+            Main Menu
+        </div>
+
+
+
+
+      
+
+
+        <div class="row">
+
+
+
+            <div class="col-md-4">
+                <!-- START Panel-->
+                <div class="panel bg-info">
+                    <div class="panel-body" style="height: 300px; padding: 30px;">
+                        <a href="#/user/members">
+
+                            <div class="text-center" style="margin-top: 20px">
+                                <em class="text-center fa fa-users" style="font-size: 100px"></em>
+                            </div>
+
+                            <div class="text-center" style="margin-top: 0px">
+                                <div class="text-lg" style="font-size: 30px !important; padding-top: 30px;">Members</div>
+                                <p class="text-muted"></p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            
+
+
+            <div class="col-md-4">
+                <!-- START Panel-->
+                <div class="panel bg-success">
+                    <div class="panel-body" style="height: 300px; padding: 30px;">
+                        <a href="#/user/profile">
+
+                            <div class="text-center" style="margin-top: 10px">
+                                <em class="text-center fa fa-user" style="font-size: 100px"></em>
+
+                            </div>
+
+                            <div class="text-center" style="margin-top: 10px">
+                                <div class="text-lg" style="font-size: 30px !important; padding-top: 30px;">Profile</div>
+                                <p class="text-muted"></p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-md-4">
+                <!-- START Panel-->
+                <div class="panel bg-warning">
+                    <div class="panel-body" style="height: 300px; padding: 30px;">
+
+                        <div class="text-center" style="margin-top: 10px">
+                            <em class="text-center icon-file" style="font-size: 100px"></em>
+                        </div>
+
+                        <div class="text-center" style="margin-top: 10px">
+                            <div class="text-lg" style="font-size: 30px !important; padding-top: 30px;">Reports</div>
+                            <p class="text-muted"></p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+<!-- END dashboard content-->

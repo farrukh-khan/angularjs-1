@@ -1,0 +1,156 @@
+<div ng-controller="CheckInController">
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/checkin">Check In</a></p>
+
+    <div class="app-view-header">
+        Check In
+    </div>
+
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div ng-init="activeStep=1" class="wizard">
+                <ul class="steps-bar">
+                    <li ng-class="{'active':activeStep&gt;=1}" ng-click="steps(1)">
+                        <span>Room Number</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=2}" ng-click="steps(2)">
+                        <span>Guest Details</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=3}" ng-click="steps(3)">
+                        <span>Extension Attributes</span>
+                    </li>
+                </ul>
+                <div ng-show="activeStep==1" class="wizard-step">
+
+
+                    <form name="form_step1" class="form-validate" style="height: 200px; margin-top: 50px">
+
+                        <p class="mt">Room Number:</p>
+                        <ui-select ng-model="model.room" theme="bootstrap" ng-disabled="disabled" reset-search-input="false">
+                            <ui-select-match placeholder="Enter an Rooom Number...">{{$select.selected.room}}</ui-select-match>
+                            <ui-select-choices repeat="room in rooms track by $index" refresh="refreshAddresses($select.search)" refresh-delay="0">
+                                <div ng-bind-html="room.room | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+
+                        <div class="mt">
+                            <button type="submit" ng-disabled="form_step1.$invalid" ng-click="activeStep=2" class="btn btn-primary">Next</button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+                <div ng-show="activeStep==2" class="wizard-step">
+
+                    <form name="form_step2" class="form-validate">
+
+                        <p class="mt">Title:</p>
+
+                        <select ng-model="model.title" class="form-control">
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Mx">Mx</option>
+                            <option value="Master">Master</option>
+                            <option value="Maid">Maid</option>
+                            <option value="Madam">Madam</option>
+                        </select>
+
+                        <!--<input type="text" name="facebook" ng-model="model.title" placeholder="Title" class="form-control"/>-->
+
+                        <p class="mt">Name:</p>
+                        <input type="text" name="name" ng-model="model.name" placeholder="Name" class="form-control" />
+
+                        <p class="mt">Email Address:</p>
+                        <input type="email" name="email" ng-model="model.email" placeholder="Email Address" class="form-control" />
+
+
+                        <p class="mt">Address:</p>
+                        <input type="text" name="Address" placeholder="Address" ng-model="model.address" class="form-control" />
+                        <p class="mt">Check In date:</p>
+                        <p class="input-group" ng-controller="DatepickerDemoController">
+                            <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.datetime" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                   class="form-control" />
+                            <span class="input-group-btn">
+                                <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                    <em class="fa fa-calendar"></em>
+                                </button>
+                            </span>
+                        </p>
+
+
+
+                        <p class="mt">Check In time:</p>
+
+                        <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" ng-model="model.time"></timepicker>
+
+
+                        <div class="mt">
+                            <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+                            <button type="submit" ng-disabled="form_step2.$invalid" ng-click="activeStep=3" class="btn btn-primary">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="activeStep==3" class="wizard-step">
+
+
+                    <form name="form_step3" class="form-validate">
+
+
+                        <p class="mt">Class of Service:</p>
+                        <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                            <label>
+                                <input type="checkbox" checked="" value="Allow external incoming calls" ng-model="model.aeic">
+                                <span class="fa fa-check"></span>Allow external incoming calls
+                            </label>
+                        </div>
+                        <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                            <label>
+                                <input type="checkbox" checked="" value="Allow external outgoing calls" ng-model="model.aeoc">
+                                <span class="fa fa-check"></span>Allow external outgoing calls
+                            </label>
+                        </div>
+                        <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                            <label>
+                                <input type="checkbox" checked="" value="Allow internal incoming calls" ng-model="model.aiic">
+                                <span class="fa fa-check"></span>Allow internal incoming calls
+                            </label>
+                        </div>
+                        <div class="checkbox c-checkbox" style="padding-top: 10px; padding-bottom: 10px;">
+                            <label>
+                                <input type="checkbox" checked="" value="Allow internal outgoing calls" ng-model="model.aioc">
+                                <span class="fa fa-check"></span>Allow internal outgoing calls
+                            </label>
+                        </div>
+                    </form>
+
+
+
+                    <div class="mt">
+                        <button type="button" ng-click="activeStep=2" class="btn btn-default">Prev</button>
+                        <button type="button" ng-click="submitCheckIn()" class="btn btn-primary">Check In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="panel-footer text-center">
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>

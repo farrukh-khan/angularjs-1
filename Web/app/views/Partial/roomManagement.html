@@ -1,0 +1,95 @@
+<p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/room-management">Room Management</a></p>
+<div class="app-view-header">
+    Room Management
+</div>
+
+<div ng-controller="roomManagementController">
+
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+
+
+
+            <table ng-table="tableParams" class="table table-bordered table-striped" id="tblRoom">
+                <thead>
+                    <tr style="font-weight: bold">
+                        <td>Room Number</td>
+                        <td>Customer</td>
+                        <td>Select</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <div class="input-group">
+                                <input placeholder="Search by Room" type="text" ng-model="model.room" class="form-control" ng-change="search()" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+
+
+
+
+
+                        </td>
+                        <td>
+
+                            <div class="input-group">
+                                <input placeholder="Search by Name" type="text" ng-model="model.name" class="form-control" ng-change="search()" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+
+                        </td>
+                        <td style="min-width: 100px;"></td>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in roomsList">
+                        <td>
+
+                            <span>{{ d.room.room}}</span>
+                        </td>
+                        <td>
+
+                            <span>{{ d.name}}</span>
+                        </td>
+
+
+                        <td style="white-space: nowrap">
+
+                            <div class="buttons">
+
+                                <a href="#/app/wakeup-alarm?room={{d.room.room}}" title="Select" class="btn btn-sm btn-info">
+                                    Wakeup Alarm
+                                </a>
+
+
+                                <a href="#/app/tariff-search?room={{d.room.room}}" title="Select" class="btn btn-sm btn-info">
+                                    Tarrif Search
+                                </a>
+
+
+                                <a href="#/app/extension-attributes?room={{d.room.room}}" title="Select" class="btn btn-sm btn-info">
+                                    Extension Attribute
+                                </a>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+        </div>
+    </div>
+</div>

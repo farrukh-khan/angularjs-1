@@ -1,0 +1,89 @@
+
+
+<div ng-controller="wakeupAlarmController">
+
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/room-management">Room Management</a>   &nbsp;>&nbsp; <a href="#/app/wakeup-alarm?room={{brdCrmRoomNumber}}">Wakeup Alarm</a>    &nbsp;>&nbsp; <a href="#/app/wakeup-alarm?room={{brdCrmRoomNumber}}">Room {{brdCrmRoomNumber}}</a></p>
+    <div class="app-view-header">
+        Wakeup Alarms
+
+        <button class="btn btn-success pull-right" style="margin-top: 10px;" ng-click="newWakup()">New Wakeup</button>
+
+    </div>
+
+
+
+
+    <div class="container-fluid">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+
+
+
+
+
+
+                <table ng-table="tableParams" class="table table-bordered table-striped" id="tbl">
+                    <thead>
+                        <tr style="font-weight: bold">
+                            <td>Date</td>
+                            <td>Time</td>
+                            <td>Status</td>
+                            <td>Description</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="wake in wakeuplist">
+                            <td>
+
+                                <span>
+
+                                    {{wake.datetime | date:'dd-MM-yyyy' }}
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <span>
+
+                                    {{wake.datetime | date:'HH:mm' }}
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <span>{{ wake.status}}</span>
+                            </td>
+                            <td>
+
+                                <span>{{ wake.description}}</span>
+                            </td>
+
+                            <td style="white-space: nowrap">
+
+                                <div class="buttons">
+
+                                    <a href="#/app/set-wakeup-alarm?room={{wake.room}}&id={{wake.id}}" title="Edit" class="btn btn-sm btn-info">
+                                        <em class="fa fa-pencil"></em>
+                                    </a>
+
+
+                                    <button title="Delete" class="btn btn-sm btn-danger">
+                                        <em class="fa fa-trash"></em>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>

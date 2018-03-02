@@ -1,0 +1,47 @@
+<!-- START Sidebar-->
+<div class="sidebar-wrapper">
+    <div ui-sidebar="" class="sidebar">
+        <div class="sidebar-nav">
+            <ul class="nav">
+                <!-- Iterates over all sidebar items-->
+                <li class="nav-heading">
+                    <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.dashboard" title="Dashboard" ripple="">
+                        <em class="sidebar-item-icon icon-pie-graph"></em>
+
+                        <span translate="DASHBOARD">Dashboard</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.users" title="Users" ripple="">
+                        <em class="sidebar-item-icon fa fa-user"></em>
+                        <span translate="Finance">Finance</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="app.members" title="Members" ripple="">
+                        <em class="sidebar-item-icon fa fa-user"></em>
+                        <span translate="Human Resource">Human Resource</span>
+                    </a>
+                </li>
+
+
+                
+
+                <li ui-sref-active="active">
+                    <a ui-sref="app.users" title="Reports" ripple="">
+                        <em class="sidebar-item-icon fa fa-file"></em>
+                        <span translate="Reports">Reports</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!-- END Sidebar-->

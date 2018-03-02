@@ -1,0 +1,54 @@
+<div ng-controller="userController">
+    <p><a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/users">Users</a></p>
+    <div class="app-view-header">
+        Users
+        <a href="#/app/user?id=0" class="btn btn-success pull-right" style="margin-top: 10px;">Create User</a>
+    </div>
+
+
+
+
+    <div class="container-fluid">
+
+        <table class="table table-bordered table-hover bg-white">
+            <tr style="font-weight: bold">
+                <td style="width: 20%">First Name</td>
+                <td style="width: 20%">Last Name</td>
+                <td style="width: 30%">Email</td>
+                
+                
+
+                <!--<td style="width: 10%"></td>-->
+            </tr>
+
+            <tr ng-repeat="user in userList">
+                <td>
+                    <span>{{ user.firstName}}</span>
+                </td>
+                <td>
+                    <span>{{ user.lastName}}</span>
+                </td>
+                <td>
+                    <span>{{ user.email}}</span>
+                </td>
+              
+               
+
+
+<!--
+                <td style="white-space: nowrap">
+
+                    <div class="buttons">
+                        <a href="#/app/edituser?id={{user.id}}" title="Edit" class="btn btn-sm btn-info">
+                            <em class="fa fa-pencil"></em>
+                        </a>
+                        <button ng-click="deleteUser(user.id)" title="Delete" class="btn btn-sm btn-danger">
+                            <em class="fa fa-trash"></em>
+                        </button>
+                    </div>
+                </td>-->
+            </tr>
+        </table>
+
+    </div>
+</div>

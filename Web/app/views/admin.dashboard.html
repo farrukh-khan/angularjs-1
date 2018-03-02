@@ -1,0 +1,510 @@
+<div class="app-view-header">
+    Budget & Finance
+   <!--<small ng-bind="app.description"></small>-->
+
+    <!--<small>PPHI SINDH</small>-->
+
+
+</div>
+<div ng-controller="DashboardController" class="row">
+    <!-- START dashboard content-->
+    <div class="col-lg-12 fw-boxed">
+        <!-- START Tabbed panel-->
+        <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row row-flush text-center text-muted m0">
+                        <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                            <em class="icon-pie-graph fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, true, false, false]" ng-class="{'bg-purple': hpanel[1]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                            <em class="icon-head fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, false, true, false]" ng-class="{'bg-pink': hpanel[2]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                            <em class="icon-share fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, false, false, true]" ng-class="{'bg-amber': hpanel[3]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                            <em class="icon-briefcase fa-2x mv"></em>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="hpanel[0]" class="col-md-8">
+                    <div class="row row-table">
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="p">
+                                <div class="row row-flush text-center">
+                                    <div class="col-xs-3">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <!--<em class="pull-right icon-bar-graph-2 text-muted"></em>-->
+                                                <div class="text-center">
+
+                                                    <p class="text-muted text-md">Receipts</p>
+                                                    <div class="label label-primary text-md">
+                                                        121,203,234  
+                                                    </div>
+                                                </div>
+
+                                                <div easypiechart="" options="pieOptions" percent="piePercent1" class="easypie" style="margin: 20px;">
+                                                    <span>{{piePercent1}}%</span>
+                                                </div>
+
+                                                <div class="text-center">
+
+
+                                                    <div class="label label-success text-md" style="margin-top: 20px">
+                                                        64,156,914                        
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-3">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <!--<em class="pull-right icon-bar-graph-2 text-muted"></em>-->
+                                                <div class="text-center">
+
+                                                    <p class="text-muted text-md">Salary</p>
+                                                    <div class="label label-primary text-md">
+                                                        121,203,234  
+                                                    </div>
+                                                </div>
+
+                                                <div easypiechart="" options="pieOptions" percent="piePercent2" class="easypie" style="margin: 20px;">
+                                                    <span>{{piePercent2}}%</span>
+                                                </div>
+
+                                                <div class="text-center">
+
+
+                                                    <div class="label label-success text-md" style="margin-top: 20px">
+                                                        64,156,914                        
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="col-xs-3">
+
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <!--<em class="pull-right icon-bar-graph-2 text-muted"></em>-->
+                                                <div class="text-center">
+
+                                                    <p class="text-muted text-md">Capital</p>
+                                                    <div class="label label-primary text-md">
+                                                        121,203,234  
+                                                    </div>
+                                                </div>
+
+                                                <div easypiechart="" options="pieOptions" percent="piePercent3" class="easypie" style="margin: 20px;">
+                                                    <span>{{piePercent3}}%</span>
+                                                </div>
+
+                                                <div class="text-center">
+
+
+                                                    <div class="label label-success text-md" style="margin-top: 20px">
+                                                        64,156,914                        
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+                                    </div>
+                                    <div class="col-xs-3">
+
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <!--<em class="pull-right icon-bar-graph-2 text-muted"></em>-->
+                                                <div class="text-center">
+
+                                                    <p class="text-muted text-md">ROE</p>
+                                                    <div class="label label-primary text-md">
+                                                        121,203,234  
+                                                    </div>
+                                                </div>
+
+                                                <div easypiechart="" options="pieOptions" percent="piePercent3" class="easypie" style="margin: 20px;">
+                                                    <span>{{piePercent3}}%</span>
+                                                </div>
+
+                                                <div class="text-center">
+
+
+                                                    <div class="label label-success text-md" style="margin-top: 20px">
+                                                        64,156,914                        
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-6 col-xs-4">
+                            <div class="p">
+                                This Week<progressbar value="35" type="warning" class="progress-xs"></progressbar>
+                                This Month<progressbar value="10" type="info" class="progress-xs"></progressbar>
+                                This Year<progressbar value="35" type="danger" class="progress-xs m0"></progressbar>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div ng-if="hpanel[1]" class="col-md-8">
+                    <div class="p pv-xxl">
+                        <ul class="list-table text-center">
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Posts</p>
+                                <div class="label label-primary text-md">500</div>
+
+                                <!--<p class="text-muted m0">TIME</p>
+                                <p class="m0">5 months</p>-->
+                            </li>
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Filled</p>
+                                <div class="label label-success text-md">400 </div>
+                                <!--<p class="text-muted m0">LAST INCOME</p>
+                                <p class="m0">Yesterday</p>-->
+                            </li>
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Difference</p>
+                                <div class="label label-danger text-md">100 </div>
+                                <!--<p class="text-muted m0">LAST SALE</p>
+                                <p class="m0">10 minutes ago</p>-->
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div ng-if="hpanel[2]" ng-init="loadProgressValues()" class="col-md-8">
+                    <ul class="list-table">
+                        <li>
+                            <div class="p">
+                                <h3>Budget Receipts Used 60%</h3>
+                                <progressbar value="progressVal[0]" type="info" class="progress-xs"></progressbar>
+                                <!--<em>Weekly Tasks.</em>-->
+                            </div>
+                        </li>
+                        <li class="pv wd-md">
+
+                            <div class="p">
+                                Management Cost:{{progressVal[1]}}%
+                                <progressbar value="progressVal[1]" type="purple" class="active progress-xs"></progressbar>
+                                MCHC Grant:{{progressVal[2]}}%<progressbar value="progressVal[2]" type="primary" class="active progress-xs"></progressbar>
+                                BRHF Grant:{{progressVal[3]}}%<progressbar value="progressVal[3]" type="warning" class="active progress-xs m0"></progressbar>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="hpanel[3]" class="col-md-8">
+                    <div class="p pv-xxl">
+                        <ul class="list-table text-center">
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Receipts</p>
+                                <div class="label label-primary text-md">121,203,234 </div>
+
+                                <!--<p class="text-muted m0">TIME</p>
+                                <p class="m0">5 months</p>-->
+                            </li>
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Received</p>
+                                <div class="label label-success text-md">121,203,234 </div>
+                                <!--<p class="text-muted m0">LAST INCOME</p>
+                                <p class="m0">Yesterday</p>-->
+                            </li>
+                            <li>
+                                <p class="text-muted text-md" style="margin-top: 25px;">Transfered</p>
+                                <div class="label label-danger text-md">121,203,234 </div>
+                                <!--<p class="text-muted m0">LAST SALE</p>
+                                <p class="m0">10 minutes ago</p>-->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tabbed panel-->
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">Capital</div>
+                    </div>
+                    <div class="panel-body">
+                        <flot src="'server/chart/capital-bar.json'" options="chartBarFlotChart"></flot>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">ROE</div>
+                    </div>
+                    <div class="panel-body">
+                        <flot src="'server/chart/roe-bar.json'" options="chartBarFlotChart"></flot>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">Capital & ROE Comparison</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="indicator show">
+                            <span class="spinner"></span>
+                        </div>
+                        <flot src="'server/chart/barstacked1.json'" options="chartBarStackedFlotChart"></flot>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">POL</div>
+                    </div>
+                    <div class="panel-body">
+                        <flot src="'server/chart/pol-bar.json'" options="chartBarFlotChart"></flot>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">Petty Cash</div>
+                    </div>
+                    <div class="panel-body">
+                        <flot src="'server/chart/PettyCash-bar.json'" options="chartBarFlotChart"></flot>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">TADA</div>
+                    </div>
+                    <div class="panel-body">
+                        <flot src="'server/chart/tada-bar.json'" options="chartBarFlotChart"></flot>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- START Responsive table-->
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+
+                            <th class="text-center">District</th>
+                            <th class="text-center">Post</th>
+                            <th class="text-center">Filled</th>
+                            <th class="text-center">BE (17-18)</th>
+                            <th class="text-center">RE (17-18)</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>
+                                <div class="label label-info text-md">
+                                    Hyderabad
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-info text-md">
+                                    20
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="label label-primary text-md">
+                                    15  
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-danger text-md">
+                                    121,203,234  
+                                </div>
+
+
+                            </td>
+                            <td>
+                                <div class="label label-success text-md">
+                                    121,203,234 
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div easypiechart="" options="pieOptions" percent="piePercent1" class="easypie">
+                                    <span>{{piePercent1}}%</span>
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <div class="label label-info text-md">
+                                    Mirpurkhas
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-info text-md">
+                                    20
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="label label-primary text-md">
+                                    15  
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-danger text-md">
+                                    121,203,234  
+                                </div>
+
+
+                            </td>
+                            <td>
+                                <div class="label label-success text-md">
+                                    121,203,234 
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div easypiechart="" options="pieOptions" percent="piePercent1" class="easypie">
+                                    <span>{{piePercent1}}%</span>
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <div class="label label-info text-md">
+                                    Sukker
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-info text-md">
+                                    20
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="label label-primary text-md">
+                                    15  
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="label label-danger text-md">
+                                    121,203,234  
+                                </div>
+
+
+                            </td>
+                            <td>
+                                <div class="label label-success text-md">
+                                    121,203,234 
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div easypiechart="" options="pieOptions" percent="piePercent1" class="easypie">
+                                    <span>{{piePercent1}}%</span>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                        
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- END Responsive table-->
+    </div>
+    <!-- END dashboard content-->
+
+</div>

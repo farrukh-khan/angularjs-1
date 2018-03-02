@@ -1,0 +1,112 @@
+<div ng-controller="memberController">
+    <p><a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/members">Members</a></p>
+    <div class="app-view-header">
+        Members
+    </div>
+
+    <div class="container-fluid">
+
+        <table class="table table-bordered table-hover bg-white">
+            <thead>
+
+
+                <tr style="font-weight: bold">
+                    <td>No</td>
+                    <td>Name</td>
+                    <td>Membership No.</td>
+                    <td>Origenater Member</td>
+                    <td>Winner Member</td>
+                    <td>Charity</td>
+                    <td>Member Conterbution</td>
+                    <td>Total Payment</td>
+                    <td>Return On</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="m in members">
+                    <td>
+                        <span>
+                            {{m.no}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{m.name}}
+                        </span>
+
+
+                    </td>
+                    <td>
+                        <div class="label {{m.color}} text-bold center-block" style="padding: 5px !important;">
+                            {{m.memberNO}}
+                            <em class="fa fa-fw "></em>
+                        </div>
+
+
+                    </td>
+                    <td>
+                        <div class="label {{m.color}} text-bold center-block" style="padding-top: 5px !important; padding-bottom: 5px !important;">
+                            {{m.oMember}}
+                            <em class="fa fa-fw "></em>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <span>
+                            {{m.wMember}}
+                        </span>
+
+                    </td>
+                    <td>
+                        <span>
+                            {{m.charity}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{m.memberCon}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{m.totalPayment}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{m.returnOn}}
+                        </span>
+                    </td>
+
+                </tr>
+            </tbody>
+
+
+            <tfoot>
+                <tr>
+
+                    <td colspan="4"></td>
+                    <td>
+                        <span><b>Total:</b></span>
+                    </td>
+                    <td>
+                        <span><b>BD 200</b></span>
+                    </td>
+                    <td>
+                        <span><b>BD 200</b></span>
+                    </td>
+                    <td>
+                        <span><b>BD 400</b></span>
+                    </td>
+                    <td>
+                        <span><b>BD 200</b></span>
+                    </td>
+
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+</div>

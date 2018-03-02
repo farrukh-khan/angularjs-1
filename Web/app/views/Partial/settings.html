@@ -1,0 +1,92 @@
+
+<p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/settings">Settings</a></p>
+
+<div class="app-view-header">
+    Settings
+</div>
+
+
+<!-- START row-->
+<div ng-controller="settingsController" class="row">
+    <div class="col-md-12">
+        <form name="settingsForm" ng-submit="submitForm(settingsForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                </div>
+
+
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">First Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.firstName" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">last Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.lastName" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.Email" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Payment</label>
+                            <div class="col-sm-6">
+                                <div class="radio c-radio">
+                                    <label>
+                                        <input type="radio" name="a" value="option1">
+                                        <span class="fa fa-circle"></span>Paypal
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                  
+
+
+
+
+
+                    <div class="mt">
+                        <button type="button" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" ng-disabled="settingsForm.$invalid">Submit</button>
+                    </div>
+                </div>
+
+
+                
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+
+    </div>
+</div>

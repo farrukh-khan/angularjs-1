@@ -1,0 +1,371 @@
+<div ng-controller="CheckOutController">
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/checkout">Check Out</a></p>
+    <div class="app-view-header">
+        Check Out
+    </div>
+
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div ng-init="activeStep=1" class="wizard">
+                <ul class="steps-bar">
+                    <li ng-class="{'active':activeStep&gt;=1}" ng-click="steps(1)">
+                        <span>Select Room</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=2}" ng-click="steps(2)">
+                        <span>Check Out</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=3}" ng-click="steps(3)">
+                        <span>Invoice</span>
+                    </li>
+
+                </ul>
+                <div ng-show="activeStep==1" class="wizard-step">
+
+
+                    <form name="form_step1" class="form-validate">
+
+
+
+                        <table ng-table="tableParams" class="table table-bordered table-striped">
+                            <thead>
+                                <tr style="font-weight: bold">
+                                    <td>Room Number</td>
+                                    <td>Customer</td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+
+                                        <div class="input-group">
+                                            <input placeholder="Search by Room" type="text" ng-model="model.room" class="form-control" ng-change="search()" />
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+
+                                    </td>
+                                    <td>
+
+
+                                        <div class="input-group">
+                                            <input placeholder="Search by Name" type="text" ng-model="model.name" class="form-control" ng-change="search()" />
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="d in roomsList">
+                                    <td>
+
+                                        <span>{{ d.room.room}}</span>
+                                    </td>
+                                    <td>
+
+                                        <span>{{ d.name}}</span>
+                                    </td>
+
+
+                                    <td style="white-space: nowrap">
+
+                                        <div class="buttons">
+
+                                            <button title="Select" class="btn btn-sm btn-info" ng-click="select(d.room.room)">
+                                                Select
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+
+                    </form>
+                </div>
+                <div ng-show="activeStep==2" class="wizard-step">
+
+                    <form name="form_step2" class="form-validate" ng-submit="submitCheckOut(form_step2.$valid)">
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+
+                                <aside class=" fw-boxed">
+
+                                    <div class="col-md-6">
+                                        <div ripple="" class="panel panel-default">
+                                            <div ng-class="'bg-' + app.theme.name" class="panel-body">
+                                                <h1 class="text-thin mt">01:15:00</h1>
+                                                <div class="text-right text-sm text-muted">Total Calls Time</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div ripple="" class="panel panel-default">
+                                            <div ng-class="'bg-' + app.theme.name" class="panel-body">
+                                                <h1 class="text-thin mt">{{model.currency}}60</h1>
+                                                <div class="text-right text-sm text-muted">Total Cost</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                </aside>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="table-responsive table-bordered mb-lg">
+                                    <table ng-table="tableParams" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr style="font-weight: bold">
+                                                <td>Number</td>
+                                                <td>Description</td>
+
+                                                <td>Start Time</td>
+                                                <td>Start End</td>
+
+                                                <td>Duration</td>
+                                                <td>Cost</td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="d in callsList">
+                                                <td>
+
+                                                    <span>{{ d.number}}</span>
+                                                </td>
+                                                <td>
+
+                                                    <span>{{ d.description}}</span>
+                                                </td>
+
+
+                                                <td>
+                                                    <span>{{d.startTime}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>{{d.endTime}}</span>
+                                                </td>
+
+                                                <td>
+                                                    <span>{{ d.duration}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>{{model.currency}}{{ d.cost}}</span>
+                                                </td>
+
+
+                                            </tr>
+                                        </tbody>
+                                        <!--<tfoot>
+                        <tr>
+                            <td colspan="4">total</td>
+                            <td>{{totalDuration}}</td>
+                            <td>{{totalCost}}</td>
+                        </tr>
+                        </tfoot>-->
+
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="mt">
+                            <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+                            <button type="submit" ng-disabled="form_step2.$invalid" ng-click="activeStep=3" class="btn btn-primary">Check Out</button>
+                        </div>
+
+
+
+                        <!--<div class="mt">
+            <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+            <button type="button" ng-click="print()" class="btn btn-success">Print</button>
+            <button type="button" ng-click="submitCheckOut()" class="btn btn-primary">Check Out</button>
+
+        </div>-->
+                    </form>
+                </div>
+
+
+
+
+                <div ng-show="activeStep==3" class="wizard-step">
+
+                    <form name="form_step3" class="form-validate">
+
+
+                        <div class="clearfix"></div>
+                        <div class="row pv">
+                            <div class="col-xs-8">
+                                <div class="text-lg text-bold"></div>
+                            </div>
+                            <div class="col-xs-4">
+                                <h3 class="text-right text-muted">
+                                    <span class="mt">Invoice #{{model.invoiceNumber}}</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h4 class="text-bold">{{model.hotelName}}</h4>
+                                <address>
+                                    Nowhere 65
+                                    <br />Far St., 123
+                                    <br />Showland
+                                </address>
+                            </div>
+                        </div>
+                        <div class="row bt pv-xl">
+                            <div class="col-xs-8 br">
+                                <h4 class="text-bold">{{model.customerName}}</h4>
+                                <address>
+                                    Neverland 54
+                                    <br />Jump, Joe, 123
+                                    <br />Mars
+                                </address>
+                            </div>
+                            <div class="col-xs-4">
+                                <table class="table">
+
+                                    <tr>
+                                        <td class="b0"><strong>Check In Date & Time</strong></td>
+                                        <td class="b0 text-right">
+                                            {{model.checkInDatetime | date:'dd-MM-yyyy hh:mm:ss' }}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="b0"><strong>Check Out Date & Time</strong></td>
+                                        <td class="b0 text-right">
+                                            {{model.checkOutDatetime | date:'dd-MM-yyyy hh:mm:ss' }}
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="table-responsive table-bordered mb-lg">
+
+                            <table class="table">
+                                <thead>
+                                    <tr style="font-weight: bold">
+                                        <th class="col-xs">Number</th>
+                                        <th>Description</th>
+
+                                        <th class="col-xs">Start Time</th>
+                                        <th class="col-xs">Start End</th>
+
+                                        <th class="col-xs">Duration</th>
+                                        <th class="col-xs">Cost</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="d in callsList">
+                                        <td>
+
+                                            <span>{{ d.number}}</span>
+                                        </td>
+                                        <td>
+
+                                            <span>{{ d.description}}</span>
+                                        </td>
+
+
+                                        <td>
+                                            <span>{{d.startTime| date:'dd-MM-yyyy hh:mm:ss' }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{d.endTime| date:'dd-MM-yyyy hh:mm:ss' }}</span>
+                                        </td>
+
+
+                                        <td>
+                                            <span>{{ d.duration}}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{model.currency}}{{ d.cost}}</span>
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-8 col-sm-4 pv">
+                                <div class="clearfix">
+                                    <p class="pull-left">Subtotal</p>
+                                    <p class="pull-right mr">{{model.currency}}{{model.subTotal}}</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="pull-left">Tax (10%)</p>
+                                    <p class="pull-right mr">{{model.currency}}{{model.tax}}</p>
+                                </div>
+                                <div class="clearfix text-bold">
+                                    <p class="pull-left pv">TOTAL</p>
+                                    <p class="pull-right mr pv">{{model.currency}}{{model.total}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="hidden-print" />
+                        <div class="clearfix">
+                            <button type="button" onclick="window.print();" class="btn btn-info pull-right">Print</button>
+                            <button type="button" class="btn btn-success pull-left" ng-click="sendInvoice()">Send Invoice</button>
+                        </div>
+
+
+
+                        <!--<div class="mt">
+                            <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+                            <button type="button" ng-click="print()" class="btn btn-success">Print</button>
+                            <button type="button" ng-click="submitCheckOut()" class="btn btn-primary">Check Out</button>
+
+                        </div>-->
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

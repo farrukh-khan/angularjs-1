@@ -1,0 +1,47 @@
+<div ng-controller="extensionAttributeController">
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/room-management">Room Management</a>   &nbsp;>&nbsp; <a href="#/app/extension-attributes?room={{brdCrmRoomNumber}}">Extension Attributes</a>&nbsp;>&nbsp; <a href="#/app/extension-attributes?room={{brdCrmRoomNumber}}">Room {{brdCrmRoomNumber}}</a></p>
+    <div class="app-view-header">
+        Extension Attributes
+    </div>
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <p class="mt">Class of Service:</p>
+            <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                <label>
+                    <input type="checkbox" checked="" value="Allow external incoming calls" ng-model="model.aeic">
+                    <span class="fa fa-check"></span>Allow external incoming calls
+                </label>
+            </div>
+            <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                <label>
+                    <input type="checkbox" checked="" value="Allow external outgoing calls" ng-model="model.aeoc">
+                    <span class="fa fa-check"></span>Allow external outgoing calls
+                </label>
+            </div>
+            <div class="checkbox c-checkbox" style="padding-top: 10px;">
+                <label>
+                    <input type="checkbox" checked="" value="Allow internal incoming calls" ng-model="model.aiic">
+                    <span class="fa fa-check"></span>Allow internal incoming calls
+                </label>
+            </div>
+            <div class="checkbox c-checkbox" style="padding-top: 10px; padding-bottom: 10px;">
+                <label>
+                    <input type="checkbox" checked="" value="Allow internal outgoing calls" ng-model="model.aioc">
+                    <span class="fa fa-check"></span>Allow internal outgoing calls
+                </label>
+            </div>
+
+            <div class="mt">
+                <button type="button" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="update()">Update</button>
+            </div>
+
+        </div>
+
+        
+
+
+    </div>
+</div>

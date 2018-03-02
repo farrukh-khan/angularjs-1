@@ -1,0 +1,103 @@
+<div ng-controller="wakeupAlarmController" class="row">
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/room-management">Room Management</a>   &nbsp;>&nbsp; <a href="#/app/wakeup-alarm?room={{brdCrmRoomNumber}}">Wakeup Alarm</a>    &nbsp;>&nbsp; <a href="#/app/wakeup-alarm?room={{brdCrmRoomNumber}}">Room {{brdCrmRoomNumber}}</a>    &nbsp;>&nbsp; <a href="#/app/set-wakeup-alaram?room={{brdCrmRoomNumber}}">New Wakeup Alarm</a></p>
+
+    <div class="app-view-header">
+        New Wake-Up
+    </div>
+
+    <!-- START row-->
+
+    <div class="col-md-12">
+        <form name="wakeupForm" ng-submit="submitNew(wakeupForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <!--<div class="panel-title">Role</div>-->
+                </div>
+
+
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date</label>
+                            <div class="col-sm-6">
+                                <p class="input-group" ng-controller="DatepickerDemoController">
+                                    <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="newModel.selectedDate" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                           class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                            <em class="fa fa-calendar"></em>
+                                        </button>
+                                    </span>
+                                </p>
+
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Time</label>
+                            <div class="col-sm-6">
+
+                                <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" ng-model="newModel.time"></timepicker>
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Status</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" ng-model="newModel.status">
+                                    <option value="Active">Active</option>
+                                    <option value="Pending">Pending</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="newModel.description" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+                    <div class="mt">
+                        <button type="button" class="btn btn-primary" ng-click="cancelNew()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" ng-disabled="wakeupForm.$invalid">Submit</button>
+                    </div>
+
+
+
+                </div>
+
+
+                <!--<div class="panel-footer text-center">
+                    <button type="button" class="btn btn-info" ng-click="cancelNew()">Cancel</button>
+                    <button type="submit" class="btn btn-info" ng-disabled="wakeupForm.$invalid">Submit</button>
+                </div>-->
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+
+    </div>
+</div>

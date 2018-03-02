@@ -1,0 +1,122 @@
+
+
+<div ng-controller="tariffSeaarchController">
+    <p> <a href="#/app/dashboard">Home</a>  &nbsp;>&nbsp; <a href="#/app/room-management">Room Management</a>   &nbsp;>&nbsp; <a href="#/app/tariff-search?room={{brdCrmRoomNumber}}">Tariff Search</a> &nbsp;>&nbsp; <a href="#/app/tariff-search?room={{brdCrmRoomNumber}}">Room {{brdCrmRoomNumber}}</a></p>
+    <div class="app-view-header">
+        Tariff Search
+
+    </div>
+
+
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+
+
+            <table ng-table="tableParams" class="table table-bordered table-striped" id="tblTarrifSearch">
+                <thead>
+                    <tr style="font-weight: bold">
+                        <td>Code</td>
+                        <td>Country</td>
+                        <td>Rate per Min</td>
+                    </tr>
+
+                    <tr>
+                        <td><input placeholder="Search by Code" type="text" ng-model="model.code" class="form-control" ng-change="search()" /> </td>
+                        <td><input placeholder="Search by Country" type="text" ng-model="model.country" class="form-control" ng-change="search()" /> </td>
+                        <td></td>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in countries">
+                        <td>
+
+                            <span>{{ d.code}}</span>
+                        </td>
+                        <td>
+
+                            <span>{{ d.country}}</span>
+                        </td>
+
+                        <td>
+                            <span>{{ d.rate}}</span>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+            
+
+            <!--<p class="mt">Search :</p>
+            <ui-select ng-model="model.country" theme="bootstrap" ng-disabled="disabled" reset-search-input="false" ng-change="change()">
+                <ui-select-match placeholder="Enter Country Name...">{{$select.selected.country}}</ui-select-match>
+                <ui-select-choices repeat="d in countries track by $index" refresh="refreshAddresses($select.search)" refresh-delay="0">
+                    <div ng-bind-html="d.country| highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">{{model.countryName}}</div>
+                <div class="panel-body">
+
+
+
+
+
+
+
+                    <div class="col-md-12">
+
+
+                        <aside class=" fw-boxed">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body" style="padding: 50px">
+                                            <h1 class="text-thin mt">{{model.landLineRate}}</h1>
+                                            <div class="text-sm">P / MIN</div>
+
+
+                                            <div class="text-right text-sm text-muted">Land Line</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body" style="padding: 50px">
+                                            <h1 class="text-thin mt">{{model.mobileRate}}</h1>
+                                            <div class="text-sm">P / MIN</div>
+                                            <div class="text-right text-sm text-muted">Mobile</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </aside>
+
+
+                    </div>
+
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+
+
+
+
+</div>
